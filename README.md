@@ -11,7 +11,7 @@ This project was built as my **first Node.js application**, created **for practi
 - **Add Items to Cart**: Users can add pizzas to their cart with a click.
 - **Checkout and Purchase**: Once ready, users can fill in their shipping details and make a purchase.
 - **Order Confirmation**: After placing an order, users receive a confirmation page with details of the order.
-- **Responsive UI**: The app is designed to work smoothly on all devices, providing a seamless user experience.
+- **Responsive UI**: The app is designed  work smoothly on all devices, providing a seamless user experience.
 
 
 
