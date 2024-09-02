@@ -4,7 +4,7 @@
 
 The **Pizza Shop Web Application** is a simple e-commerce platform that allows users to browse various pizza options, add them to their cart, proceed to checkout, and receive an order confirmation. 
 
-This project was built as my **first Node.js application**, created **for practice purposes** to learn and improve my skills in backend development using **Node.js**. The application uses **EJS** for templating and is powered by **Node.js** with **Express** as the backend framework.
+This project was built as my **first Node.js application**, created **for practice purposes** to learn and improve my skills in backend development using **Node.js**. The application uses **EJS** for templating and is powered by **Node.js** with **Express** as  backend framework.
 
 ### Key Features:
 - **Browse Pizzas**: Users can view various pizzas with details such as name, price, and ingredients.
