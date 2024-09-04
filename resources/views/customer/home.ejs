@@ -1,0 +1,115 @@
+<div class="hero-section bg-danger text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">Delicious Pizza Delivered Hot & Fresh!</h1>
+                <p class="lead mb-4">Order your favorite pizza online and get it delivered to your doorstep in 30 minutes or less.</p>
+                <div class="d-flex gap-3">
+                    <a href="/pizza" class="btn btn-warning btn-lg fw-bold">Order Now</a>
+                    <a href="/about" class="btn btn-outline-light btn-lg">Learn More</a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="/img/hero-pizza.png" alt="Delicious Pizza" class="img-fluid rounded-circle shadow" style="max-width: 400px;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-clock text-danger fa-3x mb-3"></i>
+                        <h5>Fast Delivery</h5>
+                        <p>Get your pizza delivered within 30 minutes or it's free!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-leaf text-success fa-3x mb-3"></i>
+                        <h5>Fresh Ingredients</h5>
+                        <p>We use only the freshest, locally sourced ingredients for our pizzas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-star text-warning fa-3x mb-3"></i>
+                        <h5>Top Rated</h5>
+                        <p>Rated #1 pizza place in the city by our happy customers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Pizzas -->
+<% if (featuredPizzas && featuredPizzas.length > 0) { %>
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Featured Pizzas</h2>
+            <p class="text-muted">Try our most popular and delicious pizzas</p>
+        </div>
+        <div class="row">
+            <% featuredPizzas.forEach(pizza => { %>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="/img/pizzas/<%= pizza.image %>" class="card-img-top" alt="<%= pizza.name %>" style="height: 200px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title"><%= pizza.name %></h5>
+                        <p class="card-text text-muted small flex-grow-1"><%= pizza.description %></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-danger fw-bold">From $<%= pizza.sizes[0].price %></span>
+                            <div>
+                                <% for(let i = 0; i < 5; i++) { %>
+                                    <i class="fas fa-star <%= pizza.rating > i ? 'text-warning' : 'text-muted' %>"></i>
+                                <% } %>
+                            </div>
+                        </div>
+                        <a href="/pizza/<%= pizza._id %>" class="btn btn-danger mt-2">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+        <div class="text-center mt-4">
+            <a href="/pizza" class="btn btn-outline-danger btn-lg">View All Pizzas</a>
+        </div>
+    </div>
+</section>
+<% } %>
+
+<!-- Categories Section -->
+<% if (categories && categories.length > 0) { %>
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Pizza Categories</h2>
+            <p class="text-muted">Explore our delicious pizza varieties</p>
+        </div>
+        <div class="row">
+            <% categories.forEach(category => { %>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <img src="/img/<%= category.image %>" class="card-img-top" alt="<%= category.name %>" style="height: 150px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title"><%= category.name %></h5>
+                        <p class="card-text text-muted"><%= category.description %></p>
+                        <a href="/pizza?category=<%= category._id %>" class="btn btn-outline-danger">View Pizzas</a>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+</section>
+<% } %>
