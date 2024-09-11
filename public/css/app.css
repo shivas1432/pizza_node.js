@@ -1,125 +1,489 @@
+/* Custom CSS for Pizza Palace */
+
+/* Global Styles */
+:root {
+    --primary-color: #dc3545;
+    --secondary-color: #ffc107;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --dark-color: #343a40;
+    --light-color: #f8f9fa;
+}
+
 body {
-  font-family: "Lato", sans-serif;
-  background-color: #f1faee;
-  margin: 0;
-  padding: 0;
-  color: #1d3557;
-  height: 4000px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
 }
 
-nav {
-  background-color: #1d3557;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-nav img {
-  max-width: 150px;
-}
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-}
-nav ul li a {
-  color: #f1faee;
-  text-decoration: none;
-  font-weight: bold;
-}
-nav ul li a:hover {
-  color: #a8dadc;
+/* Navigation Styles */
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
-main {
-  padding: 2rem;
-  text-align: center;
-}
-main h2 {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-  color: #e63946;
-}
-main p {
-  margin-bottom: 1.5rem;
-}
-main .order-now {
-  background-color: #e63946;
-  color: #f1faee;
-  padding: 0.75rem 1.5rem;
-  font-size: 1.2rem;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-main .order-now:hover {
-  background-color: #457b9d;
+.navbar-nav .nav-link {
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
-.pizzas {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-}
-.pizzas .pizza-item {
-  background-color: #f1faee;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  max-width: 300px;
-}
-.pizzas .pizza-item img {
-  max-width: 100%;
-  border-radius: 8px;
-}
-.pizzas .pizza-item h3 {
-  font-size: 1.5rem;
-  color: #1d3557;
-}
-.pizzas .pizza-item p {
-  font-size: 1rem;
-  color: #1d3557;
-}
-.pizzas .pizza-item .pizza-price {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin: 0.5rem 0;
-  color: #e63946;
-}
-.pizzas .pizza-item .order-now {
-  background-color: #e63946;
-  color: #f1faee;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-.pizzas .pizza-item .order-now:hover {
-  background-color: #457b9d;
+.navbar-nav .nav-link:hover {
+    transform: translateY(-2px);
 }
 
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-section h1 {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Card Styles */
+.card {
+    border: none;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card-img-top {
+    border-radius: 15px 15px 0 0;
+    transition: all 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+/* Pizza Card Specific Styles */
+.pizza-card {
+    overflow: hidden;
+}
+
+.pizza-card .card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Button Styles */
+.btn {
+    border-radius: 25px;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+    color: #000;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+}
+
+/* Form Styles */
+.form-control {
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+/* Badge Styles */
+.badge {
+    font-size: 0.75rem;
+    padding: 0.5em 0.75em;
+    border-radius: 15px;
+}
+
+/* Alert Styles */
+.alert {
+    border-radius: 15px;
+    border: none;
+    font-weight: 500;
+}
+
+.alert-dismissible .btn-close {
+    padding: 1.25rem 1rem;
+}
+
+/* Cart Styles */
+.cart-item {
+    transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+    background-color: rgba(0,0,0,0.02);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+/* Modal Styles */
+.modal-content {
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.modal-header {
+    border-bottom: 2px solid var(--light-color);
+    border-radius: 20px 20px 0 0;
+}
+
+.modal-footer {
+    border-top: 2px solid var(--light-color);
+    border-radius: 0 0 20px 20px;
+}
+
+/* Admin Dashboard Styles */
+.card.bg-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3) !important;
+}
+
+.card.bg-success {
+    background: linear-gradient(135deg, #28a745, #1e7e34) !important;
+}
+
+.card.bg-info {
+    background: linear-gradient(135deg, #17a2b8, #117a8b) !important;
+}
+
+.card.bg-warning {
+    background: linear-gradient(135deg, #ffc107, #e0a800) !important;
+}
+
+.card.bg-danger {
+    background: linear-gradient(135deg, #dc3545, #c82333) !important;
+}
+
+.card.bg-dark {
+    background: linear-gradient(135deg, #343a40, #23272b) !important;
+}
+
+/* Table Styles */
+.table {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.table thead th {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    padding: 1rem;
+}
+
+.table tbody td {
+    padding: 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.table tbody tr:hover {
+    background-color: rgba(220, 53, 69, 0.05);
+}
+
+/* Footer Styles */
 footer {
-  background-color: #1d3557;
-  color: #f1faee;
-  text-align: center;
-  padding: 1rem 0;
-  margin-top: 2rem;
-}
-footer p {
-  margin: 0;
-}
-footer a {
-  color: #e63946;
-  text-decoration: none;
-  font-weight: bold;
-}
-footer a:hover {
-  color: #a8dadc;
+    margin-top: auto;
 }
 
-section.hero {
-  background: #f1faee;
+footer a {
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--secondary-color) !important;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        text-align: center;
+        padding: 2rem 0;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-section .lead {
+        font-size: 1rem;
+    }
+    
+    .card-img-top {
+        height: 200px;
+    }
+    
+    .btn-lg {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section h1 {
+        font-size: 1.75rem;
+    }
+    
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-up {
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading Spinner */
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #c82333;
+}
+
+/* Pizza Rating Stars */
+.rating-stars {
+    color: #ffc107;
+}
+
+.rating-stars .fas {
+    font-size: 0.875rem;
+}
+
+/* Order Status Badges */
+.status-pending {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.status-confirmed {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.status-preparing {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+.status-ready {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.status-delivered {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.status-cancelled {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Search and Filter */
+.search-filter-section {
+    background-color: rgba(220, 53, 69, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Pizza Category Pills */
+.category-pill {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0.25rem;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.category-pill:hover,
+.category-pill.active {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+/* Cart Counter Animation */
+.cart-counter {
+    animation: bounce 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
+    60% {
+        transform: translateY(-3px);
+    }
+}
+
+/* Form Validation */
+.is-invalid {
+    border-color: var(--danger-color);
+}
+
+.is-valid {
+    border-color: var(--success-color);
+}
+
+.invalid-feedback {
+    color: var(--danger-color);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.valid-feedback {
+    color: var(--success-color);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Utility Classes */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.border-primary {
+    border-color: var(--primary-color) !important;
+}
+
+.shadow-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.shadow {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.shadow-lg {
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+/* Print Styles */
+@media print {
+    .navbar,
+    .footer,
+    .btn,
+    .alert {
+        display: none;
+    }
+    
+    .container {
+        max-width: none;
+        padding: 0;
+    }
+    
+    .card {
+        border: 1px solid #000;
+        box-shadow: none;
+    }
 }
