@@ -1,103 +1,185 @@
-# Pizza Shop Node Application
+#  Pizza sort - Online Booking System
 
-## Description
+A complete online pizza ordering system built with Node.js, Express.js, and MongoDB. Features customer ordering, admin management, and real-time order tracking.
 
-The **Pizza Shop Web Application** is a simple e-commerce platform that allows users to browse various pizza options, add them to their cart, proceed to checkout, and receive an order confirmation. 
+![Pizza Palace](https://img.shields.io/badge/Status-Production%20Ready-green)
+![Node.js](https://img.shields.io/badge/Node.js-18.x-brightgreen)
+![MongoDB](https://img.shields.io/badge/MongoDB-6.x-green)
+![Express.js](https://img.shields.io/badge/Express.js-4.x-lightgrey)
 
-This project was built as my **first Node.js application**, created **for practice purposes** to learn and improve my skills in backend development using **Node.js**. The application uses **EJS** for templating and is powered by **Node.js** with **Express** as  backend framework.
+##  Features
 
-### Key Features:
-- **Browse Pizzas**: Users can view various pizzas with details such as name, price, and ingredients.
-- **Add Items to Cart**: Users can add pizzas to their cart with a click.
-- **Checkout and Purchase**: Once ready, users can fill in their shipping details and make a purchase.
-- **Order Confirmation**: After placing an order, users receive a confirmation page with details of the order.
-- **Responsive UI**: The app is designed  work smoothly on all devices, providing a seamless user experience.
+###  Customer Features
+- **User Registration & Authentication** - Secure login system
+- **Browse Pizza Menu** - View pizzas by categories with search functionality
+- **Shopping Cart** - Add/remove items, customize toppings and sizes
+- **Online Ordering** - Place orders with delivery/pickup options
+- **Order Tracking** - Real-time order status updates
+- **Order History** - View past orders and reorder favorites
+- **User Profile** - Manage personal information and addresses
 
+### Admin Features
+- **Dashboard** - Sales analytics and key metrics
+- **Pizza Management** - Add, edit, delete pizzas and categories
+- **Order Management** - View and update order statuses
+- **Customer Management** - View customer information and order history
+- **Sales Reports** - Detailed analytics and revenue reports
+- **Inventory Tracking** - Monitor pizza availability
 
+### Security Features
+- **Password Hashing** - Bcrypt encryption
+- **Session Management** - Secure user sessions
+- **Input Validation** - Server-side validation with Joi
+- **XSS Protection** - Helmet.js security headers
+- **CSRF Protection** - Cross-site request forgery prevention
+- **Rate Limiting** - API rate limiting protection
 
-## Installation
+## Quick Start
 
 ### Prerequisites
-- **Node.js** (>= 12.x)
-- **npm** (Node Package Manager)
+- Node.js (v18 or higher)
+- MongoDB (v6 or higher)
+- npm or yarn
 
-### Steps to Install
+### Installation
 
-1. **Clone the repository** to your local machine:
+1. **Clone the repository**
+```bash
+git clone https://github.com/yourusername/pizza-booking-system.git
+cd pizza-booking-system
+```
 
-    git clone https://github.com/shivas1432/pizza_node.js.git
-   
+2. **Install dependencies**
+```bash
+npm install
+```
 
-2. **Install npm Dependencies**:
+3. **Set up environment variables**
+```bash
+cp .env.example .env
+```
+Edit `.env` file with your configuration:
+```env
+NODE_ENV=development
+PORT=3000
+MONGODB_URI=mongodb://localhost:27017/pizza_booking
+SESSION_SECRET=your-super-secret-session-key
+```
 
-    In the root directory of your project, run:
+4. **Create required directories**
+```bash
+mkdir -p public/uploads/pizzas
+mkdir -p storage/logs
+mkdir -p storage/cache
+```
 
-    npm install
-    
+5. **Seed the database** (optional)
+```bash
+npm run seed
+```
 
-3. **Set Up Environment Variables**:
-
-   "I didn't use environment variables"
-
-4. **Run the Development Server**:
-
-    To start the development server and automatically compile assets with hot-reloading:
-
-    npm run dev
-   
-    This will:
-    - Compile and bundle your assets (CSS, JS).
-    - Watch for changes in your files and rebuild the assets when you make changes.
-    - Start the server locally (usually accessible at `http://localhost:3000`).
-
-### Running in Production
-
-For production, you should build and optimize your assets:
-
-npm run production
-This command will:
-
-Minify and version the assets (JavaScript and CSS).
-Place optimized files in the /public directory.
-Enhance performance by reducing load times.
-Project Structure
-Here’s an overview of the important directories and files:
-
-
-/resources/views      - EJS view templates
-/public               - Public files (images, fonts, compiled assets like CSS/JS)
-/resources            - Make changes in server side
-/src                  - Application routes
-/package.json         - Node.js project dependencies
-/webpack.mix.js       - Laravel Mix configuration for compiling assets
-Asset Management with Laravel Mix
-Laravel Mix is used to compile and bundle your assets. You can modify or add new assets by editing the relevant resources files.
-
-JavaScript Files: /resources/js/app.js, /resources/js/cart.js, /resources/js/product.js, etc.
-CSS Files: /resources/css/products.css, /resources/css/payment.css, /resources/css/header.css, etc.
-The webpack.mix.js file contains the configuration for compiling and bundling assets.
-
-Example of Usage in EJS Views
-In your EJS templates, you can link the compiled assets using the mix() helper:
-
-<head>
-    <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
-</head>
-
-<body>
-    <script src="{{ mix('/js/app.js') }}"></script>
-</body>
-This ensures that the latest version of the compiled assets is included in the view.
-
-Useful Commands
-Start Development Server:
-
+6. **Start the application**
+```bash
+# Development mode
 npm run dev
-Compile Assets for Production:
 
-npm run production
-Start the Application:
-
-The application can be started on a specific port (by default, at http://localhost:3000):
-
+# Production mode
 npm start
+```
+
+Visit `http://localhost:3000` to see the application.
+
+## 📁 Project Structure
+
+```
+pizza-booking-system/
+├── app.js                 # Main application file
+├── server.js             # Server configuration
+├── package.json          # Dependencies and scripts
+│
+├── config/               # Configuration files
+│   ├── database.js      # Database config
+│   └── app.js           # App configuration
+│
+├── controllers/          # Route controllers
+│   ├── authController.js
+│   ├── pizzaController.js
+│   ├── orderController.js
+│   └── adminController.js
+│
+├── models/              # Database models
+│   ├── User.js
+│   ├── Pizza.js
+│   ├── Order.js
+│   └── Category.js
+│
+├── routes/              # Route definitions
+│   ├── index.js
+│   ├── auth.js
+│   ├── pizza.js
+│   ├── order.js
+│   └── admin.js
+│
+├── views/               # EJS templates
+│   ├── layouts/         # Layout templates
+│   ├── partials/        # Partial templates
+│   ├── customer/        # Customer pages
+│   ├── admin/           # Admin pages
+│   └── auth/            # Authentication pages
+│
+├── public/              # Static files
+│   ├── css/            # Stylesheets
+│   ├── js/             # JavaScript files
+│   ├── img/            # Images
+│   └── uploads/        # User uploads
+│
+├── middlewares/         # Custom middlewares
+│   ├── auth.js         # Authentication
+│   ├── validation.js   # Input validation
+│   └── errorHandler.js # Error handling
+│
+├── utils/              # Utility functions
+│   ├── helpers.js
+│   ├── validation.js
+│   └── email.js
+│
+└── database/           # Database related
+    ├── connection.js   # DB connection
+    └── seeders/        # Database seeders
+```
+
+##  API Endpoints
+
+### Authentication
+- `GET /auth/login` - Login page
+- `POST /auth/login` - Process login
+- `GET /auth/register` - Registration page
+- `POST /auth/register` - Process registration
+- `POST /auth/logout` - Logout user
+
+### Public Routes
+- `GET /` - Homepage
+- `GET /pizza` - Pizza menu
+- `GET /pizza/:id` - Pizza details
+- `GET /about` - About page
+- `GET /contact` - Contact page
+
+### Customer Routes
+- `GET /order/cart` - View shopping cart
+- `POST /order/cart/add` - Add item to cart
+- `DELETE /order/cart/:id` - Remove from cart
+- `GET /order/checkout` - Checkout page
+- `POST /order/place` - Place order
+- `GET /order/history` - Order history
+- `GET /order/:id` - Order details
+
+### Admin Routes (Protected)
+- `GET /admin/dashboard` - Admin dashboard
+- `GET /admin/pizzas` - Manage pizzas
+- `GET /admin/orders` - Manage orders
+- `GET /admin/customers` - Manage customers
+- `GET /admin/reports` - Sales reports
+
+### API Routes
+- `GET /api/pizzas` - Get all pizzas
+- `GET /api/pizzas
