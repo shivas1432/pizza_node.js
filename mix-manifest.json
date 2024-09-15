@@ -1,4 +1,48 @@
-{
-    "/public/js/app.js": "/public/js/app.js",
-    "/public/css/app.css": "/public/css/app.css"
+const mix = require('laravel-mix');
+
+
+// Compile JavaScript
+mix.js('resources/js/app.js', 'public/js')
+   .js('resources/js/admin.js', 'public/js')
+   .js('resources/js/cart.js', 'public/js');
+
+// Compile CSS/SASS
+mix.sass('resources/scss/app.scss', 'public/css')
+   .sass('resources/scss/admin.scss', 'public/css')
+   .sass('resources/scss/auth.scss', 'public/css');
+
+// Copy images and other assets
+mix.copyDirectory('resources/images', 'public/img')
+   .copyDirectory('resources/fonts', 'public/fonts');
+
+// Options
+mix.options({
+    processCssUrls: false
+});
+
+// Enable source maps in development
+if (mix.inProduction()) {
+    mix.version();
+} else {
+    mix.sourceMaps();
 }
+
+// Browser sync for development
+mix.browserSync({
+    proxy: 'localhost:3000',
+    files: [
+        'views/**/*.ejs',
+        'public/**/*.css',
+        'public/**/*.js'
+    ]
+});
+
+// Webpack configuration
+mix.webpackConfig({
+    resolve: {
+        alias: {
+            '@': path.resolve('resources/js'),
+            '~': path.resolve('resources/scss')
+        }
+    }
+});
