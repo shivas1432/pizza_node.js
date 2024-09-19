@@ -1,155 +1,204 @@
-@import'./variables';
+// Import Bootstrap
+@import '~bootstrap/scss/bootstrap';
 
-// Variables for colors and fonts
-$primary-color: #e63946;
-$secondary-color: #f1faee;
-$accent-color: #457b9d;
-$dark-color: #1d3557;
-$light-color: #a8dadc;
-$font-stack: 'Lato', sans-serif;
+// Import custom variables
+@import 'variables';
 
-// General styling
+// Import component styles
+@import 'components/navbar';
+@import 'components/hero';
+@import 'components/cards';
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/cart';
+@import 'components/modal';
+@import 'components/notifications';
+
+// Variables
+:root {
+  --primary-color: #{$primary};
+  --secondary-color: #{$secondary};
+  --success-color: #{$success};
+  --danger-color: #{$danger};
+  --warning-color: #{$warning};
+  --info-color: #{$info};
+  --dark-color: #{$dark};
+  --light-color: #{$light};
+  --font-family: #{$font-family-base};
+}
+
+// Global styles
 body {
-    font-family: $font-stack;
-    background-color: $secondary-color;
-    margin: 0;
+  font-family: $font-family-base;
+  line-height: 1.6;
+  color: $body-color;
+  background-color: $body-bg;
+}
+
+// Utility classes
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.box-shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.box-shadow {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.box-shadow-lg {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+.border-radius-lg {
+  border-radius: 1rem;
+}
+
+.border-radius-xl {
+  border-radius: 1.5rem;
+}
+
+// Animation classes
+.fade-in {
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bounce {
+  animation: bounce 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
+// Loading spinner
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $light;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: darken($primary, 10%);
+}
+
+// Responsive design
+@include media-breakpoint-down(md) {
+  .hero-section {
+    text-align: center;
+    padding: 2rem 0;
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    .lead {
+      font-size: 1rem;
+    }
+  }
+  
+  .card-img-top {
+    height: 200px;
+  }
+  
+  .btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .hero-section h1 {
+    font-size: 1.75rem;
+  }
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+}
+
+// Print styles
+@media print {
+  .navbar,
+  .footer,
+  .btn,
+  .alert {
+    display: none !important;
+  }
+  
+  .container {
+    max-width: none;
     padding: 0;
-    color: $dark-color;
-    height: 4000px;
-}
-
-nav {
-    background-color: $dark-color;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    img {
-        max-width: 150px;
-    }
-
-    ul {
-        display: flex;
-        list-style: none;
-        gap: 2rem;
-
-        li {
-            a {
-                color: $secondary-color;
-                text-decoration: none;
-                font-weight: bold;
-
-                &:hover {
-                    color: $light-color;
-                }
-            }
-        }
-    }
-}
-
-main {
-    padding: 2rem;
-    text-align: center;
-
-    h2 {
-        font-size: 4rem;
-        margin-bottom: 1rem;
-        color: $primary-color;
-    }
-
-    p {
-        margin-bottom: 1.5rem;
-    }
-
-    .order-now {
-        background-color: $primary-color;
-        color: $secondary-color;
-        padding: 0.75rem 1.5rem;
-        font-size: 1.2rem;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-
-        &:hover {
-            background-color: $accent-color;
-        }
-    }
-}
-
-.pizzas {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-
-    .pizza-item {
-        background-color: $secondary-color;
-        padding: 1rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        max-width: 300px;
-
-        img {
-            max-width: 100%;
-            border-radius: 8px;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            color: $dark-color;
-        }
-
-        p {
-            font-size: 1rem;
-            color: $dark-color;
-        }
-
-        .pizza-price {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin: 0.5rem 0;
-            color: $primary-color;
-        }
-
-        .order-now {
-            background-color: $primary-color;
-            color: $secondary-color;
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-
-            &:hover {
-                background-color: $accent-color;
-            }
-        }
-    }
-}
-
-footer {
-    background-color: $dark-color;
-    color: $secondary-color;
-    text-align: center;
-    padding: 1rem 0;
-    margin-top: 2rem;
-
-    p {
-        margin: 0;
-    }
-
-    a {
-        color: $primary-color;
-        text-decoration: none;
-        font-weight: bold;
-
-        &:hover {
-            color: $light-color;
-        }
-    }
-}
-section.hero{
-   background: $secondary-color;
+  }
+  
+  .card {
+    border: 1px solid #000;
+    box-shadow: none;
+  }
 }
