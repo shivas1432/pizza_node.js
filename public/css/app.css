@@ -1,0 +1,125 @@
+body {
+  font-family: "Lato", sans-serif;
+  background-color: #f1faee;
+  margin: 0;
+  padding: 0;
+  color: #1d3557;
+  height: 4000px;
+}
+
+nav {
+  background-color: #1d3557;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav img {
+  max-width: 150px;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+nav ul li a {
+  color: #f1faee;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav ul li a:hover {
+  color: #a8dadc;
+}
+
+main {
+  padding: 2rem;
+  text-align: center;
+}
+main h2 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: #e63946;
+}
+main p {
+  margin-bottom: 1.5rem;
+}
+main .order-now {
+  background-color: #e63946;
+  color: #f1faee;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+main .order-now:hover {
+  background-color: #457b9d;
+}
+
+.pizzas {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.pizzas .pizza-item {
+  background-color: #f1faee;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+}
+.pizzas .pizza-item img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+.pizzas .pizza-item h3 {
+  font-size: 1.5rem;
+  color: #1d3557;
+}
+.pizzas .pizza-item p {
+  font-size: 1rem;
+  color: #1d3557;
+}
+.pizzas .pizza-item .pizza-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  color: #e63946;
+}
+.pizzas .pizza-item .order-now {
+  background-color: #e63946;
+  color: #f1faee;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.pizzas .pizza-item .order-now:hover {
+  background-color: #457b9d;
+}
+
+footer {
+  background-color: #1d3557;
+  color: #f1faee;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+footer p {
+  margin: 0;
+}
+footer a {
+  color: #e63946;
+  text-decoration: none;
+  font-weight: bold;
+}
+footer a:hover {
+  color: #a8dadc;
+}
+
+section.hero {
+  background: #f1faee;
+}

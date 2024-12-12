@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> | Best Pizza in Town</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="bg-gray-100 font-lato">
+
+    <!-- Navigation -->
+    <nav class="container mx-auto flex items-center justify-between py-4">
+        <div>
+            <img src="/img/logo (2).png" alt="Pizza-Logo" class="h-12">
+        </div>
+        <ul class="flex items-center space-x-6">
+            <li><a href="/" class="text-gray-700 hover:text-red-500">Home</a></li>
+            <li><a href="/menu" class="text-gray-700 hover:text-red-500">Menu</a></li>
+            <li><a href="#" class="text-gray-700 hover:text-red-500">Offers</a></li>
+            <li><a href="#" class="text-gray-700 hover:text-red-500">Register</a></li>
+            <li><a href="#" class="text-gray-700 hover:text-red-500">Login</a></li>
+            <li><a href="/cart"><img src="/img/cart.png" alt="Cart" class="h-6"></a></li>
+        </ul>
+    </nav>
+
+    <!-- Cart Section -->
+    <section class="py-8">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8"><%= title %></h2>
+            <% if (cart.length > 0) { %>
+                <ul class="space-y-4">
+                    <% cart.forEach(item => { %>
+                        <li class="bg-white p-6 rounded-lg shadow-lg flex justify-between items-center">
+                            <img src="<%= item.image %>" alt="<%= item.name %>" class="w-32 h-32 object-cover rounded-lg mr-4">
+                            <div class="flex-1">
+                                <h3 class="text-2xl font-bold text-gray-800"><%= item.name %></h3>
+                                <p class="text-gray-600 mb-2"><%= item.description %></p>
+                                <p class="text-red-500 font-bold text-lg">$<%= item.price %></p>
+                            </div>
+                            <form action="/remove-from-cart" method="POST">
+                                <input type="hidden" name="pizzaId" value="<%= item.id %>">
+                                <button type="submit" class="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600">Remove</button>
+                            </form>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } else { %>
+                <p>Your cart is empty.</p>
+            <% } %>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-red-600 text-white p-4 mt-12">
+        <div class="container mx-auto text-center">
+            <p>&copy; <%= new Date().getFullYear() %> <%= title %>. All rights reserved.</p>
+            <p class="mt-2">Follow us on <a href="#" class="underline">Instagram</a> and <a href="#" class="underline">Facebook</a></p>
+        </div>
+    </footer>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>

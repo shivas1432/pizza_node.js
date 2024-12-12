@@ -4,9 +4,15 @@
   "description": "\"creating a realtime pizza store\"",
   "main": "index.js",
   "scripts": {
+    "development": "npx mix",
+    "watch": "npx mix watch",
+    "watch-poll": "npx mix watch -- --watch-options-poll=1000",
+    "hot": "npx mix watch --hot",
+    "production": "npx mix --production",
     "test": "package.json",
     "serve": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "author": "shiva",
   "license": "ISC",
@@ -17,7 +23,11 @@
     "express-ejs-layouts": "^2.5.1"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "laravel-mix": "^6.0.49",
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.77.8",
+    "sass-loader": "^12.1.0"
   }
 }
